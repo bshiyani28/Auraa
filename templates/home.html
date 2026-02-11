@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+        <!-- 1. LOCAL (THE ONLY 100% FIX): Save your waterfall as 'static/video/waterfall.mp4' -->
+        <source src="{% static 'video/waterfall.mp4' %}" type="video/mp4">
+        <!-- 2. STABLE NATURE FALLBACK (Verified stable source) -->
+        <!-- <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4"> -->
+        <!-- 3. EMERGENCY BACKUP -->
+        <!-- <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4"> -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <h1 class="hero-title">Pure Glacial <br> Hydration</h1>
+        <p class="hero-subtitle">Freshness through regional proximity</p>
+        <a href="{% url 'products' %}" class="btn btn-hero">Experience Purity</a>
+    </div>
+    <div class="hero-bottle">
+        <!-- Placeholder for bottle image -->
+        <!-- In a real scenario, we'd use a real bottle image. For now, a placeholder div or text. -->
+        <div class="bottle-mockup"></div>
+    </div>
+</section>
+
+<!-- Occasions Section -->
+<section class="occasions section">
+    <div class="container text-center">
+        <h2 class="occasions-title">A SIP OF WATER FOR ALL OCCASIONS!</h2>
+        <p class="occasions-subtitle">Brace yourself! With Auraa Pure Mineral Bottled Water you are just going to find
+            excuses to take a sip! Be it the summer heat, tiredness after a workout, or just a passing quench, Auraa is
+            your final destination!</p>
+
+        <div class="occasions-grid">
+            <!-- Card 1: Morning -->
+            <div class="occasion-card" style="background-image: url('{% static 'img/auraa 3.png' %}');"
+                data-occasion="morning">
+            </div>
+
+            <!-- Card 2: Workout - Featured -->
+            <div class="occasion-card occasion-card-featured"
+                style="background-image: url('{% static 'img/auraa 1.png' %}');" data-occasion="workout">
+            </div>
+
+            <!-- Card 3: Evening -->
+            <div class="occasion-card" style="background-image: url('{% static 'img/auraa 2.png' %}');"
+                data-occasion="evening">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Teaser (Parallax Application) -->
+<section class="process-teaser section">
+    <div class="container">
+        <h2 class="section-title">The Purification Process</h2>
+        <div class="process-visual">
+            <div class="drop-container">
+                <div class="water-drop"></div>
+            </div>
+            <div class="layers-container">
+                <div class="layer layer-rock">
+                    <span>Volcanic Rock</span>
+                </div>
+                <div class="layer layer-sand">
+                    <span>Fine Sand</span>
+                </div>
+                <div class="layer layer-charcoal">
+                    <span>Activated Charcoal</span>
+                </div>
+            </div>
+            <div class="final-bottle">
+                <span>The Perfect Bottle</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

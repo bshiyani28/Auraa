@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="b2b-hero section-dark">
+    <div class="container">
+        <div class="hero-content reveal-up">
+            <h1 class="b2b-title">Global Partnerships. <br><span>Peak Hydration.</span></h1>
+            <p class="b2b-subtitle">Join the Auraa network and elevate your brand with the pinnacle of glacial
+                purification technology.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} glass reveal-up" style="padding: 1rem; margin-bottom: 2rem;">
+                {{ message }}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="b2b-layout">
+            <!-- Left: Info -->
+            <div class="b2b-info reveal-left">
+                <div class="info-card glass">
+                    <h3>Why Partner with Auraa?</h3>
+                    <ul class="info-list">
+                        <li>
+                            <!-- <span class="icon">🚀</span> -->
+                            <div>
+                                <h4>Scalable Supply Chain</h4>
+                                <p>Reliable global delivery for hotels, resorts, and corporate offices.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- <span class="icon">💎</span> -->
+                            <div>
+                                <h4>Premium Branding</h4>
+                                <p>Exclusive custom labeling and co-branding opportunities for VIP clients.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- <span class="icon">🌊</span> -->
+                            <div>
+                                <h4>Sustainable Soul</h4>
+                                <p>Recyclable packaging and ESG-compliant sourcing.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="partner-badge">
+                        <span class="badge-text">Certified Global Supplier 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="b2b-form-wrapper reveal-right">
+                <div class="inquiry-form glass">
+                    <h2 class="form-title">Send Partnership Inquiry</h2>
+                    <form method="post" class="cyber-form">
+                        {% csrf_token %}
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="{{ form.name.id_for_label }}">Full Name</label>
+                                {{ form.name }}
+                                {% if form.name.errors %}<div class="error-text">{{ form.name.errors }}</div>{% endif %}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.email.id_for_label }}">Corporate Email</label>
+                                {{ form.email }}
+                                {% if form.email.errors %}
+                                <div class="error-text">{{ form.email.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Product Interest</label>
+                            <div class="checkbox-group-futuristic">
+                                {{ form.products }}
+                            </div>
+                            {% if form.products.errors %}
+                            <div class="error-text">{{ form.products.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            <label for="{{ form.message.id_for_label }}">Collaboration Details</label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                            <div class="error-text">{{ form.message.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <button type="submit" class="btn-cyber-submit">
+                            <span>INITIALIZE INQUIRY</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

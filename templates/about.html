@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% block title %}About Us - Auraa Premium Water{% endblock %}
+{% block content %}
+
+<!-- About Hero Section -->
+<section class="about-hero">
+    <div class="about-hero-bg">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&h=900&fit=crop&q=80"
+            alt="Glacial mountain source">
+        <div class="about-hero-overlay"></div>
+    </div>
+    <div class="container relative z-10">
+        <div class="about-hero-content">
+            <h1 class="about-hero-title">Beyond Pure, <br><span>Beyond Expectations.</span></h1>
+            <p class="about-hero-subtitle">Discover the journey of Auraa – from the heart of volcanic filters to your
+                premium hydration experience.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story Section -->
+<section class="about-story section">
+    <div class="container grid-two-cols">
+        <div class="about-story-text reveal-left">
+            <h2 class="section-title text-left">The Auraa Origin</h2>
+            <div class="about-text-content">
+                <p>Founded in 2026, Auraa was born from a simple yet profound desire: to bring the purest water on
+                    Earth to your table without compromising the environment that created it.</p>
+                <p>We believe that water is not just a necessity, but a luxury that should be experienced. Our journey
+                    began in the untouched glacial regions, where we discovered a unique volcanic filtration process
+                    that yields unparalleled purity.</p>
+                <div class="about-values-mini">
+                    <div class="mini-value">
+                        <span class="value-number">01</span>
+                        <div class="value-info">
+                            <h4>Purity First</h4>
+                            <p>Every drop is tested for 100+ parameters.</p>
+                        </div>
+                    </div>
+                    <div class="mini-value">
+                        <span class="value-number">02</span>
+                        <div class="value-info">
+                            <h4>Sustainable Soul</h4>
+                            <p>Recyclable packaging and renewable energy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="about-story-image reveal-right">
+            <div class="image-stack">
+                <img src="https://images.pexels.com/photos/8980722/pexels-photo-8980722.jpeg" alt="Auraa Water Glass"
+                    class="main-img">
+                <div class="floating-stat">
+                    <span class="stat-num">9.5</span>
+                    <span class="stat-label">Optimal pH</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Showcase -->
+<section class="about-process section-dark">
+    <div class="container">
+        <h2 class="section-title">The Art of Purification</h2>
+        <div class="process-cards">
+            <div class="process-card-modern reveal-up">
+                <div class="card-icon">🌋</div>
+                <h3>Volcanic Filtration</h3>
+                <p>Water filters naturally through layers of ancient volcanic rock for over 10 years.</p>
+            </div>
+            <div class="process-card-modern reveal-up">
+                <div class="card-icon">🔬</div>
+                <h3>Ionic Balancing</h3>
+                <p>We enhance the mineral profile to ensure a smooth, crisp taste and perfect electrolyte balance.</p>
+            </div>
+            <div class="process-card-modern reveal-up">
+                <div class="card-icon">🍾</div>
+                <h3>Aseptic Bottling</h3>
+                <p>Bottled in a state-of-the-art facility to preserve freshness until the moment it reaches you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Sustainability Section -->
+<section class="about-impact section">
+    <div class="container">
+        <div class="impact-header reveal-up">
+            <h2 class="section-title">Purity with Purpose</h2>
+            <p class="section-subtitle">We don't just source from nature; we exist to protect it. Our commitment to
+                sustainability is built into every layer of our process.</p>
+        </div>
+
+        <div class="impact-grid">
+            <!-- Pillar 1: Circularity -->
+            <div class="impact-card glass">
+                <div class="impact-icon">♻️</div>
+                <h3>Infinite LifeCycle</h3>
+                <p>Ours is a circular journey. We prioritize the planet by using 100% recyclable, high-grade PET,
+                    ensuring every bottle can be reborn</p>
+                <div class="impact-meta">
+                    <span class="meta-tag">Eco-Responsible</span>
+                    <span class="meta-tag">Premium & Safe</span>
+                </div>
+            </div>
+
+            <!-- Pillar 2: Water Stewardship -->
+            <div class="impact-card glass">
+                <div class="impact-icon">💧</div>
+                <h3>Water Guardianship</h3>
+                <p>Sourced regionally, replenished twofold. We invest in local watershed restoration to ensure our
+                    region's water remains abundant and pure. For every liter bottled, we restore two back to the heart
+                    of our community.</p>
+                <div class="impact-meta">
+                    <span class="meta-tag">2x Replenishment</span>
+                    <span class="meta-tag">Source Protection</span>
+                </div>
+            </div>
+
+            <!-- Pillar 3: Climate Positive -->
+            <div class="impact-card glass">
+                <div class="impact-icon">🌱</div>
+                <h3>Nature-Positive Logistics</h3>
+                <p>Since plastic is lightweight, it actually requires less fuel to transport than glass. Highlighting
+                    "optimized regional routes" plays to this strength.</p>
+                <div class="impact-meta">
+                    <span class="meta-tag">Low-emission technology</span>
+                    <span class="meta-tag">Localizing our logistics</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="impact-bottom">
+            <div class="impact-banner glass">
+                <div class="banner-content">
+                    <h3>Join the Circular Revolution</h3>
+                    <p>Every bottle purchased fuels our commitment to remove 1 million kilograms of environmental
+                        plastic by 2030. Together, we are ensuring that plastic stays in the economy and out of our
+                        ecosystems.</p>
+                </div>
+                <div class="banner-cta">
+                    <a href="{% url 'products' %}" class="btn btn-primary">Choose Circular</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

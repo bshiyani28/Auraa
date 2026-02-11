@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="section quality-showcase">
+    <div class="container showcase-container">
+        <!-- Background Decorative Text -->
+        <div class="bg-text-wrapper">
+            <h1 class="bg-text-main">Auraa</h1>
+            <p class="bg-text-sub">RELAX WITH EVERY DROP</p>
+        </div>
+
+        <div class="bottle-showcase-wrapper">
+            <!-- Callouts Left -->
+            <div class="callout-group left">
+                <div class="callout left-1">
+                    <div class="callout-content">
+                        <h4>PACKED WITH</h4>
+                        <h3>PURPOSE</h3>
+                    </div>
+                    <svg class="callout-line" width="100" height="2">
+                        <line x1="0" y1="1" x2="100" y2="1" />
+                    </svg>
+                </div>
+                <div class="callout left-2">
+                    <div class="callout-content">
+                        <h4>SOURCED</h4>
+                        <h3>REGIONALLY</h3>
+                    </div>
+                    <svg class="callout-line" width="200" height="2">
+                        <line x1="0" y1="1" x2="200" y2="1" />
+                    </svg>
+                </div>
+                <div class="callout left-3">
+                    <div class="callout-content">
+                        <h4>NATURAL</h4>
+                        <h3>ELECTROLYTES</h3>
+                    </div>
+                    <svg class="callout-line" width="150" height="2">
+                        <line x1="0" y1="1" x2="150" y2="1" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Central Bottle -->
+            <div class="central-bottle-wrapper">
+                <img src="{% static 'img/bottle-1.png' %}" alt="Auraa Mineral Water" class="main-bottle">
+                <div class="bottle-glow"></div>
+            </div>
+
+            <!-- Callouts Right -->
+            <div class="callout-group right">
+                <div class="callout right-1">
+                    <svg class="callout-line" width="150" height="2">
+                        <line x1="0" y1="1" x2="150" y2="1" />
+                    </svg>
+                    <div class="callout-content">
+                        <h4>NATURALLY</h4>
+                        <h3>ALKALINE</h3>
+                    </div>
+                </div>
+                <div class="callout right-2">
+                    <svg class="callout-line" width="150" height="2">
+                        <line x1="0" y1="1" x2="150" y2="1" />
+                    </svg>
+                    <div class="callout-content">
+                        <h4>CLEAN & SAFE</h4>
+                        <h3>WATER</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Old Section as fallback or secondary -->
+<section class="section">
+    <div class="container">
+        <h1 class="section-title">The Purification Process</h1>
+        <div class="process-steps">
+            <div class="step glass">
+                <!-- <span class="step-number">01</span> -->
+                <img src="{% static 'img/source.jpg' %}" height="200px" alt="">
+                <h3>Source</h3>
+                <p>We source our water from protected regional water sources, ensuring we start with the highest quality local minerals.</p>
+            </div>
+            <div class="step glass">
+                <!-- <span class="step-number">02</span> -->
+                <img src="{% static 'img/filtration.jpg' %}" height="200px" alt="">
+                <h3>Filtration</h3>
+                <p>The water passes through advanced sediment and carbon filtration layers to remove impurities while retaining its natural character.</p>
+            </div>
+            <div class="step glass">
+                <!-- <span class="step-number">03</span> -->
+                <img src="{% static 'img/bottling.jpg' %}" height="200px" alt="">
+                <h3>Bottling</h3>
+                <p>By bottling at the source within our region, we minimize transit time and deliver the freshest water possible to your door.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
