@@ -1,16 +1,96 @@
 document.addEventListener("DOMContentLoaded", function () {
     gsap.registerPlugin(ScrollTrigger);
 
-    // Video Playback Logic
-    const v = document.querySelector('.hero-video');
-    if (v) {
-        v.muted = true;
-        const play = () => {
-            v.play().catch(() => { });
+    // ===== Scrollytelling Hero Implementation =====
+    const canvas = document.getElementById("hero-sequence");
+    const context = canvas ? canvas.getContext("2d") : null;
+
+    if (canvas && context) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const frameCount = 64;
+        const currentFrame = index => `/static/Updated%20frames/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`;
+
+        const images = [];
+        const airpods = {
+            frame: 0
         };
-        v.addEventListener('canplay', play);
-        play();
-        ['click', 'scroll', 'touchstart'].forEach(type => window.addEventListener(type, play, { once: true }));
+
+        // Preload images
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            images.push(img);
+        }
+
+        // Render function to simulate object-fit: cover
+        const render = () => {
+            if (!images[airpods.frame] || !images[airpods.frame].complete) return;
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            const img = images[airpods.frame];
+
+            const hRatio = canvas.width / img.width;
+            const vRatio = canvas.height / img.height;
+            const ratio = Math.max(hRatio, vRatio);
+
+            const centerShift_x = (canvas.width - img.width * ratio) / 2;
+            const centerShift_y = (canvas.height - img.height * ratio) / 2;
+
+            context.drawImage(img, 0, 0, img.width, img.height,
+                centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
+        };
+
+        // Ensure first frame renders when loaded
+        images[0].onload = render;
+
+        // GSAP ScrollTrigger for Frame Scrubbing
+        let frameTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: ".scrolly-hero",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 0.5
+            }
+        });
+
+        frameTl.to(airpods, {
+            frame: frameCount - 1,
+            snap: "frame",
+            ease: "none",
+            duration: 1, // Ensure this spans the entire timeline duration (0 to 1)
+            onUpdate: render
+        });
+
+        // --- Text Overlays (Synchronized with Frame Timeline) ---
+        // Timeline runs from 0 to 1 as we scroll scrolly-hero from top-top to bottom-bottom
+
+        // 0% Text: Starts visible, fades out & moves up
+        frameTl.to(".hero-text-0", { opacity: 0, y: -50, duration: 0.2 }, 0);
+
+        // 30% Text: Slide Up In (0.3), Stay, Slide Up Out (0.55)
+        // We use fromTo to ensure the starting position is reset for the entrance
+        frameTl.fromTo(".hero-text-30",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.05 },
+            0.3
+        );
+        frameTl.to(".hero-text-30", { opacity: 0, y: -50, duration: 0.05 }, 0.55);
+
+        // 60% Text: Slide Up In (0.65), Stays visible
+        frameTl.fromTo(".hero-text-60",
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.05 },
+            0.65
+        );
+
+        // Handle Resize
+        window.addEventListener("resize", () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            render();
+        });
     }
 
     // Initialize Lenis for Smooth Scroll
